@@ -57,11 +57,14 @@
           <span class="close"></span>
           <div class="modal-body">
             <form
-              name="reserve"
+              id="formUser"
+              name="reserve" 
               action="index.html"
               method="get"
-              onsubmit="return validate();"
             >
+            <!--
+              onsubmit="return validate();"  
+            -->
               <div
                 class="formData">
                 <label>Prénom</label><br>
@@ -73,6 +76,8 @@
                   minlength="2"
                 /><br>
               </div>
+              <!-- message d'erreur pour le prénom -->
+              <p id="error-firstName" class="errorText">test</p> 
               <div
                 class="formData">
                 <label>Nom</label><br>
@@ -83,6 +88,8 @@
                   name="last"
                 /><br>
               </div>
+              <!-- message d'erreur pour le nom -->
+              <p id="error-lastName" class="errorText">test</p> 
               <div
                 class="formData">
                 <label>E-mail</label><br>
@@ -93,6 +100,8 @@
                   name="email"
                 /><br>
               </div>
+              <!-- message d'erreur pour le mail -->
+              <p id="error-mail" class="errorText">test</p> 
               <div
                 class="formData">
                 <label>Date de naissance</label><br>
@@ -103,11 +112,15 @@
                   name="birthdate"
                 /><br>
               </div>
+              <!-- message d'erreur pour la date de naissance -->
+              <p id="error-age" class="errorText">test</p> 
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
+              <!-- message d'erreur pour le nb de participations -->
+              <p id="error-participations" class="errorText">test</p> 
               <p class="text-label">Quelles villes ?</p>
               <div
                 class="formData">
@@ -200,11 +213,13 @@
                 <br>
               </div>
               <input
+                id="validation-btn"
                 class="btn-submit"
                 type="submit"
                 class="button"
                 value="C'est parti"
               />
+              <p id="error-validation">message validation</p>
             </form>
           </div>
         </div>
