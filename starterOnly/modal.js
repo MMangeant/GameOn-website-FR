@@ -18,7 +18,13 @@ const lastName = document.getElementById("last");
 const emailAdress = document.getElementById("email");
 const ageDate = document.getElementById("birthdate");
 const nbParticipations = document.getElementById("quantity");
-
+const ville1 = document.getElementById("location1");
+const ville2 = document.getElementById("location2");
+const ville3 = document.getElementById("location3");
+const ville4 = document.getElementById("location4");
+const ville5 = document.getElementById("location5");
+const ville6 = document.getElementById("location6");
+const cocheCGU = document.getElementById("checkbox1");
 
 const formSubmit = document.getElementById ("formUser");
 
@@ -28,6 +34,8 @@ const errorLastName = document.getElementById("error-lastName");
 const errorMail = document.getElementById("error-mail");
 const errorAge = document.getElementById("error-age");
 const errorParticipations = document.getElementById("error-participations");
+const errorVilles = document.getElementById("error-villes");
+const errorCGU = document.getElementById("error-CGU");
 
 const errorValidation = document.getElementById ("error-validation");
 
@@ -172,9 +180,41 @@ function checkParticipations () {
 
 
 // vérification champ villes
+var villeArray = [ville1,ville2,ville3,ville4,ville5,ville6];
+
+function checkCities () {
+  if ((villeArray[0].checked) ||
+     (villeArray[1].checked) ||
+     (villeArray[2].checked) ||
+     (villeArray[3].checked) ||
+     (villeArray[4].checked) ||
+     (villeArray[5].checked)){
+        
+        return true;
+  }
+  else{
+    errorVilles.textContent = "Veuillez indiquer une ville";
+    errorVilles.style.display = "block";
+
+  }
+}
 
 // vérification checkbox CGU
+cocheCGU.addEventListener ('change', function () {
+  checkCGU ();
+});
 
+function checkCGU () {
+  if(!cocheCGU.checked){
+      errorCGU.textContent = "Vous devez accepter les termes et conditions";
+      errorCGU.style.display = "block";
+      return false;
+  }
+  else{
+      errorCGU.style.display = "none";
+      return true;
+  }
+}
 
 
 // empêche l'effacement du formulaire par défaut et implémente la fonction de validation
@@ -184,8 +224,9 @@ formSubmit.addEventListener ('submit', function (e) {
 });
 
 //fonction de validation du formulaire
-function validationForm (){
-  if{
+
+/* function validationForm (){
+  if(
     checkFirstName == false ||
     checkLastName == false ||
     checkMail == false ||
@@ -193,5 +234,9 @@ function validationForm (){
     checkParticipations == false ||
     //checkCities == false ||
     //checkCGU == false ||
+    )
+    {
+      errorValidation.textContent = "Veuillez renseigner tous les champs";
+      errorValidation.style.display = "block";
   }
-} 
+}  */

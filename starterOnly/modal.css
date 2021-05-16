@@ -530,13 +530,14 @@ footer {
 
 
 .errorText{
-display:none;
+  display:none;
   color:red;
   font-size: 18px;
   font-style: italic;
 }
 
 #error-validation{
+  display:none;
   color:red;
   font-size: 18px;
   font-style: italic;
