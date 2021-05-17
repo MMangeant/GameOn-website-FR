@@ -12,32 +12,31 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 
-// DOM Elements rajoutés
-const firstName = document.getElementById("first");
-const lastName = document.getElementById("last");
-const emailAdress = document.getElementById("email");
-const ageDate = document.getElementById("birthdate");
-const nbParticipations = document.getElementById("quantity");
-const ville1 = document.getElementById("location1");
-const ville2 = document.getElementById("location2");
-const ville3 = document.getElementById("location3");
-const ville4 = document.getElementById("location4");
-const ville5 = document.getElementById("location5");
-const ville6 = document.getElementById("location6");
-const cocheCGU = document.getElementById("checkbox1");
+// DOM Elements rajoutés champs formulaire
+const firstName = document.querySelector("#first");
+const lastName = document.querySelector("#last");
+const emailAdress = document.querySelector("#email");
+const ageDate = document.querySelector("#birthdate");
+const nbParticipations = document.querySelector("#quantity");
+const city = document.querySelector('input[name="location"]');
+const cocheCGU = document.querySelector("#checkbox1");
 
-const formSubmit = document.getElementById ("formUser");
+const formSubmit = document.querySelector("#formUser");
+const messageValidation = document.querySelector("#message-validation");
 
 // DOM Elements ERRORS
-const errorFirstName = document.getElementById("error-firstName");
-const errorLastName = document.getElementById("error-lastName");
-const errorMail = document.getElementById("error-mail");
-const errorAge = document.getElementById("error-age");
-const errorParticipations = document.getElementById("error-participations");
-const errorVilles = document.getElementById("error-villes");
-const errorCGU = document.getElementById("error-CGU");
+const errorFirstName = document.querySelector("#error-firstName");
+const errorLastName = document.querySelector("#error-lastName");
+const errorMail = document.querySelector("#error-mail");
+const errorAge = document.querySelector("#error-age");
+const errorParticipations = document.querySelector("#error-participations");
+const errorCity = document.querySelector("#error-city");
+const errorCGU = document.querySelector("#error-CGU");
 
-const errorValidation = document.getElementById ("error-validation");
+const errorValidation = document.querySelector("#error-validation");
+
+//variables champs vérifiés
+
 
 
 // launch modal event
@@ -58,42 +57,36 @@ cross.addEventListener("click", function(c){
 
 
 // vérification champ prénom
-firstName.addEventListener ('change', function () {
-  checkFirstName ();
-});
+
 function checkFirstName () {
     if(!firstName.value){
-        errorFirstName.textContent = "Veuillez renseigner un prénom";
+        errorFirstName.innerHTML = "Veuillez renseigner un prénom";
         errorFirstName.style.display = "block";
-        console.log ('erreur1-firstName');
         return false;
     }
     else if(firstName.value.length < 2){
-        errorFirstName.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du prénom";
+        errorFirstName.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du prénom";
         errorFirstName.style.display = "block";
-        console.log ('erreur2-firstName');
         return false;
     }
     else{
-        errorFirstName.textContent = " ";
         errorFirstName.style.display = "none";
         return true;
+
     }
 }
 
 
 // vérification champ nom de famille
-lastName.addEventListener ('change', function () {
-  checkLastName ();
-});
+
 function checkLastName () {
     if(!lastName.value){
-        errorLastName.textContent = "Veuillez renseigner un nom de famille";
+        errorLastName.innerHTML = "Veuillez renseigner un nom de famille";
         errorLastName.style.display = "block";
         return false;
     }
     else if (lastName.value.length < 2){
-        errorLastName.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du nom de famille";
+        errorLastName.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom de famille";
         errorLastName.style.display = "block";
         return false;
     }
@@ -105,20 +98,17 @@ function checkLastName () {
 
 
 // vérification champ email
-emailAdress.addEventListener ('change', function () {
-  checkMail ();
-});
 
 var mailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 function checkMail () {
     if(!emailAdress.value){
-        errorMail.textContent = "Veuillez renseigner une adresse mail";
+        errorMail.innerHTML = "Veuillez renseigner une adresse mail";
         errorMail.style.display = "block";
         return false;
     }
     else if (mailRegex.test (emailAdress.value) == false){
-        errorMail.textContent = "L'adresse mail n'est pas valide";
+        errorMail.innerHTML = "L'adresse mail n'est pas valide";
         errorMail.style.display = "block";
         return false;
     }
@@ -129,22 +119,20 @@ function checkMail () {
 }
 
 // vérification champ age
-ageDate.addEventListener ('change', function () {
-  checkAgeDate ();
-});
 
-var date1 = ageDate.value;
-var dateUser = new Date(date1);
+
+var dateUser = new Date(ageDate.value);
+/* var dateToday = new Date(); */
 var dateToday = new Date();
 
 function checkAgeDate () {
     if(!ageDate.value){
-        errorAge.textContent = "Veuillez renseigner une date de naissance";
+        errorAge.innerHTML = "Veuillez renseigner une date de naissance";
         errorAge.style.display = "block";
-        return false;
+        return false;    
     }
-    else if (dateUser >= dateToday){
-        errorAge.textContent = "Veuillez rentrer une date de naissance valide";
+    else if(dateUser >= dateToday){
+        errorAge.innerHTML = "Veuillez rentrer une date de naissance valide";
         errorAge.style.display = "block";
         return false;
     }
@@ -156,20 +144,14 @@ function checkAgeDate () {
 
 
 
+
+
 // vérification champ participations
-nbParticipations.addEventListener ('change', function () {
-  checkParticipations ();
-});
 
 function checkParticipations () {
     if(!nbParticipations.value){
-        errorParticipations.textContent = "Veuillez indiquer le nombre de participations";
+        errorParticipations.innerHTML = "Veuillez indiquer le nombre de participations";
         errorParticipations.style.display = "block";
-        return false;
-    }
-    else if (nbParticipations > 99){
-        errorParticipations.textContent = "Le nombre est trop élevé";
-        errorMail.style.display = "block";
         return false;
     }
     else{
@@ -180,33 +162,39 @@ function checkParticipations () {
 
 
 // vérification champ villes
-var villeArray = [ville1,ville2,ville3,ville4,ville5,ville6];
 
-function checkCities () {
-  if ((villeArray[0].checked) ||
-     (villeArray[1].checked) ||
-     (villeArray[2].checked) ||
-     (villeArray[3].checked) ||
-     (villeArray[4].checked) ||
-     (villeArray[5].checked)){
-        
-        return true;
+var city1 = document.querySelector("#location1");
+var city2 = document.querySelector("#location2");
+var city3 = document.querySelector("#location3");
+var city4 = document.querySelector("#location4");
+var city5 = document.querySelector("#location5");
+var city6 = document.querySelector("#location6");
+
+var cityArray = [city1,city2,city3,city4,city5,city6];
+
+function checkCity () {
+  if (
+     (!cityArray[0].checked) &&
+     (!cityArray[1].checked) &&
+     (!cityArray[2].checked) &&
+     (!cityArray[3].checked) &&
+     (!cityArray[4].checked) &&
+     (!cityArray[5].checked)
+     ){
+      errorCity.innerHTML = "Veuillez indiquer une ville";
+      errorCity.style.display = "block";
+      return false;
   }
   else{
-    errorVilles.textContent = "Veuillez indiquer une ville";
-    errorVilles.style.display = "block";
-
+    errorCity.style.display = "none";
+    return true;
   }
 }
 
 // vérification checkbox CGU
-cocheCGU.addEventListener ('change', function () {
-  checkCGU ();
-});
-
 function checkCGU () {
   if(!cocheCGU.checked){
-      errorCGU.textContent = "Vous devez accepter les termes et conditions";
+      errorCGU.innerHTML = "Vous devez accepter les termes et conditions";
       errorCGU.style.display = "block";
       return false;
   }
@@ -219,24 +207,55 @@ function checkCGU () {
 
 // empêche l'effacement du formulaire par défaut et implémente la fonction de validation
 formSubmit.addEventListener ('submit', function (e) {
-  e.preventDefault ();
-  validationForm ();
+  e.preventDefault();
+  validate();
 });
+
+
+//fonction pour ouvrir la modale de message de validation
+function launchModalValidation() {
+	messageValidation.style.opacity = "1";
+}
+
 
 //fonction de validation du formulaire
 
-/* function validationForm (){
+function validate(){
+	let checkFirstNameResult = checkFirstName(); 
+	let checkLastNameResult = checkLastName(); 
+	let checkEmailResult = checkMail(); 
+	let checkAgeResult = checkAgeDate();
+	let checkParticipationsResult = checkParticipations();
+	let checkCityResult = checkCities();
+	let checkCGUResult = checkCGU();
+	
   if(
-    checkFirstName == false ||
-    checkLastName == false ||
-    checkMail == false ||
-    checkAgeDate == false ||
-    checkParticipations == false ||
-    //checkCities == false ||
-    //checkCGU == false ||
+    checkFirstNameResult == false ||
+    checkLastNameResult == false ||
+    checkEmailResult == false ||
+    checkAgeResult == false ||
+    checkParticipationsResult == false ||
+    checkCityResult == false ||
+    checkCGUResult == false 
     )
     {
-      errorValidation.textContent = "Veuillez renseigner tous les champs";
+      errorValidation.innerHTML = "Veuillez renseigner tous les champs";
       errorValidation.style.display = "block";
+      return false;
   }
-}  */
+  if(
+    checkFirstNameResult == true &&
+    checkLastNameResult == true &&
+    checkEmailResult == true &&
+    checkAgeResult == true &&
+    checkParticipationsResult == true &&
+    checkCityResult == true &&
+    checkCGUResult == true
+    ){
+    
+    modalBg.style.display = "none"; 
+		launchModalValidation(); 
+		return true; 
+  }
+}
+

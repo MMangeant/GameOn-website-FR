@@ -527,18 +527,35 @@ footer {
   }
 }
 
-
+/* */
 
 .errorText{
   display:none;
-  color:red;
+  color:#279e7a;
   font-size: 18px;
   font-style: italic;
 }
 
 #error-validation{
   display:none;
-  color:red;
+  color:#279e7a;
   font-size: 18px;
   font-style: italic;
+}
+
+#message-validation{
+  position: absolute;
+  background-color: #279e7a;
+  width: 700px;
+  height: 300px;
+  border-radius: 10px;
+  top: 130px;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  
+  opacity: 0;
 }

@@ -12,12 +12,11 @@
     />
   </head>
   <body>
-    <div class="topnav" id="myTopnav">
+    <header class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
-    </div>
-    <div class="main-navbar">
-      
+        <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      </div>
+    <nav class="main-navbar">
       <a href="#" class="active"><span>Accueil</span></a>
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
@@ -26,11 +25,11 @@
       <a href="javascript:void(0);" class="icon" onclick="editNav()">
         <i class="fa fa-bars"></i>
       </a>
-    </div>
-    </div>
-  </div>
+    </nav>
+  </header>
+ 
     <main>
-      <div class="hero-section">
+      <section class="hero-section">
         <div class="hero-content">
           <h1 class="hero-headline">
             Marathon national<br>
@@ -50,190 +49,117 @@
         <button class="btn-signup modal-btn">
           je m'inscris
         </button>
-      </div>
+      </section>
 
       <div class="bground">
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
-            <form
-              id="formUser"
-              name="reserve" 
-              action="index.html"
-              method="get"
-            >
+            <form id="formUser" name="reserve" action="index.html" method="get" onsubmit="return validate();" >
             <!--
               onsubmit="return validate();"  
             -->
-              <div
-                class="formData">
+              <div class="formData">
                 <label>Prénom</label><br>
-                <input
-                  class="text-control"
-                  type="text"
-                  id="first"
-                  name="first"
-                  minlength="2"
-                /><br>
+                <input class="text-control" type="text" id="first" name="first" minlength="2"/><br>
               </div>
               <!-- message d'erreur pour le prénom -->
-              <p id="error-firstName" class="errorText">test</p> 
+              <div id="error-firstName" class="errorText"></div> 
 
-              <div
-                class="formData">
+              <div class="formData">
                 <label>Nom</label><br>
-                <input
-                  class="text-control"
-                  type="text"
-                  id="last"
-                  name="last"
-                /><br>
+                <input class="text-control" type="text" id="last" name="last"/><br>
               </div>
               <!-- message d'erreur pour le nom -->
-              <p id="error-lastName" class="errorText">test</p> 
+              <div id="error-lastName" class="errorText"></div> 
 
-              <div
-                class="formData">
+              <div class="formData">
                 <label>E-mail</label><br>
-                <input
-                  class="text-control"
-                  type="email"
-                  id="email"
-                  name="email"
-                /><br>
+                <input class="text-control" type="email" id="email" name="email"/><br>
               </div>
               <!-- message d'erreur pour le mail -->
-              <p id="error-mail" class="errorText">test</p> 
+              <div id="error-mail" class="errorText"></div> 
 
-              <div
-                class="formData">
+              <div class="formData">
                 <label>Date de naissance</label><br>
-                <input
-                  class="text-control"
-                  type="date"
-                  id="birthdate"
-                  name="birthdate"
-                /><br>
+                <input class="text-control" type="date" id="birthdate" name="birthdate"/><br>
               </div>
               <!-- message d'erreur pour la date de naissance -->
-              <p id="error-age" class="errorText">test</p> 
+              <div id="error-age" class="errorText"></div> 
 
-              <div
-                class="formData">
+              <div class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0">
               </div>
               <!-- message d'erreur pour le nb de participations -->
-              <p id="error-participations" class="errorText">test</p> 
+              <div id="error-participations" class="errorText"></div> 
 
               <p class="text-label">Quelles villes ?</p>
-              <div
-                class="formData">
-                <input
-                  class="checkbox-input"
-                  type="radio"
-                  id="location1"
-                  name="location"
-                  value="New York"
-                />
+              <div class="formData">
+                <input class="checkbox-input" type="radio" id="location1" name="location" value="New York"/>
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
-                  New York</label
-                >
-                <input
-                  class="checkbox-input"
-                  type="radio"
-                  id="location2"
-                  name="location"
-                  value="San Francisco"
-                />
+                  New York
+                </label>
+                <input class="checkbox-input" type="radio" id="location2" name="location" value="San Francisco"/>
                 <label class="checkbox-label" for="location2">
                   <span class="checkbox-icon"></span>
-                  San Francisco</label
-                >
-                <input
-                  class="checkbox-input"
-                  type="radio"
-                  id="location3"
-                  name="location"
-                  value="Seattle"
-                />
+                  San Francisco
+                </label>
+                <input class="checkbox-input" type="radio" id="location3" name="location" value="Seattle"/>
                 <label class="checkbox-label" for="location3">
                   <span class="checkbox-icon"></span>
-                  Seattle</label
-                >
-                <input
-                  class="checkbox-input"
-                  type="radio"
-                  id="location4"
-                  name="location"
-                  value="Chicago"
-                />
+                  Seattle
+                </label>
+                <input class="checkbox-input" type="radio" id="location4" name="location" value="Chicago"/>
                 <label class="checkbox-label" for="location4">
                   <span class="checkbox-icon"></span>
-                  Chicago</label
-                >
-                <input
-                  class="checkbox-input"
-                  type="radio"
-                  id="location5"
-                  name="location"
-                  value="Boston"
-                />
+                  Chicago
+                </label>
+                <input class="checkbox-input" type="radio" id="location5" name="location" value="Boston"/>
                 <label class="checkbox-label" for="location5">
                   <span class="checkbox-icon"></span>
-                  Boston</label
-                >
-                <input
-                  class="checkbox-input"
-                  type="radio"
-                  id="location6"
-                  name="location"
-                  value="Portland"
-                />
+                  Boston
+                </label>
+                <input class="checkbox-input" type="radio" id="location6" name="location" value="Portland"/>
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
-                  Portland</label
-                >
+                  Portland
+                </label>
               </div>
               <!-- message d'erreur pour le choix de villes -->
-              <p id="error-villes" class="errorText">test</p> 
+              <div id="error-city" class="errorText"></div> 
 
-              <div
-                class="formData">
-                <input
-                  class="checkbox-input"
-                  type="checkbox"
-                  id="checkbox1"
-                  checked
-                />
+              <div class="formData">
+                <input class="checkbox-input" type="checkbox" id="checkbox1" checked/>
                 <label class="checkbox2-label" for="checkbox1" required>
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
+                <!-- message d'erreur pour les CGU -->
+                <div id="error-CGU" class="errorText"></div> 
+
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>
-              <!-- message d'erreur pour les CGU -->
-              <p id="error-CGU" class="errorText">test</p> 
+              
 
-              <input
-                id="validation-btn"
-                class="btn-submit"
-                type="submit"
-                class="button"
-                value="C'est parti"
-              />
-              <p id="error-validation">message validation</p>
+              <input id="validation-btn" class="btn-submit" type="submit" class="button" value="C'est parti"/>
+              <div id="error-validation">message validation</div>
             </form>
           </div>
         </div>
       </div>
+
+      <div id="message-validation">
+        <p>Merci ! Votre demande a bien été envoyée !</p>
+      </div>
+
     </main>
     <footer>
       <p class="copyrights">
