@@ -18,7 +18,12 @@ const lastName = document.querySelector("#last");
 const emailAdress = document.querySelector("#email");
 const ageDate = document.querySelector("#birthdate");
 const nbParticipations = document.querySelector("#quantity");
-const city = document.querySelector('input[name="location"]');
+const city1 = document.querySelector("#location1");
+const city2 = document.querySelector("#location2");
+const city3 = document.querySelector("#location3");
+const city4 = document.querySelector("#location4");
+const city5 = document.querySelector("#location5");
+const city6 = document.querySelector("#location6");
 const cocheCGU = document.querySelector("#checkbox1");
 
 const formSubmit = document.querySelector("#formUser");
@@ -163,18 +168,10 @@ function checkParticipations () {
 
 // vérification champ villes
 
-var city1 = document.querySelector("#location1");
-var city2 = document.querySelector("#location2");
-var city3 = document.querySelector("#location3");
-var city4 = document.querySelector("#location4");
-var city5 = document.querySelector("#location5");
-var city6 = document.querySelector("#location6");
+const cityArray = [city1,city2,city3,city4,city5,city6];
 
-var cityArray = [city1,city2,city3,city4,city5,city6];
-
-function checkCity () {
-  if (
-     (!cityArray[0].checked) &&
+function checkCity() {
+  if ((!cityArray[0].checked) &&
      (!cityArray[1].checked) &&
      (!cityArray[2].checked) &&
      (!cityArray[3].checked) &&
@@ -226,7 +223,7 @@ function validate(){
 	let checkEmailResult = checkMail(); 
 	let checkAgeResult = checkAgeDate();
 	let checkParticipationsResult = checkParticipations();
-	let checkCityResult = checkCities();
+	let checkCityResult = checkCity();
 	let checkCGUResult = checkCGU();
 	
   if(
