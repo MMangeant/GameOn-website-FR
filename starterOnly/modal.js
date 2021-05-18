@@ -124,7 +124,6 @@ function checkMail () {
 
 
 var dateUser = new Date(ageDate.value);
-/* var dateToday = new Date(); */
 var dateToday = new Date();
 
 function checkAgeDate () {

@@ -544,7 +544,7 @@ footer {
 }
 
 #modalValidation{
-  position: absolute;
+  position: fixed;
   background-color: #3876ac;
   width: 700px;
   height: 300px;
