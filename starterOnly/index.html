@@ -29,7 +29,7 @@
   </header>
  
     <main>
-      <section class="hero-section">
+      <div class="hero-section">
         <div class="hero-content">
           <h1 class="hero-headline">
             Marathon national<br>
@@ -49,11 +49,11 @@
         <button class="btn-signup modal-btn">
           je m'inscris
         </button>
-      </section>
+      </div>
 
       <div class="bground">
         <div class="content">
-          <span class="close"></span>
+          <span class="close" id="closeForm"></span>
           <div class="modal-body">
             <form id="formUser" name="reserve" action="index.html" method="get" onsubmit="return validate();" >
             <!--
@@ -156,8 +156,9 @@
         </div>
       </div>
 
-      <div id="message-validation">
-        <p>Merci ! Votre demande a bien été envoyée !</p>
+      <div id="modalValidation">
+        <span class="close" id="closeValid"></span>
+        <p id="txtValid">Merci ! Votre demande a bien été envoyée !</p>
       </div>
 
     </main>

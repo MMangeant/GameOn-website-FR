@@ -543,9 +543,9 @@ footer {
   font-style: italic;
 }
 
-#message-validation{
+#modalValidation{
   position: absolute;
-  background-color: #279e7a;
+  background-color: #3876ac;
   width: 700px;
   height: 300px;
   border-radius: 10px;
@@ -555,10 +555,11 @@ footer {
   color: white;
   display: none;
   z-index: 3;
-  p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
+}
+
+#txtValid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

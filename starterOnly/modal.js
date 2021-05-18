@@ -27,7 +27,7 @@ const city6 = document.querySelector("#location6");
 const cocheCGU = document.querySelector("#checkbox1");
 
 const formSubmit = document.querySelector("#formUser");
-const messageValidation = document.querySelector("#message-validation");
+const modalValidate = document.querySelector("#modalValidation");
 
 // DOM Elements ERRORS
 const errorFirstName = document.querySelector("#error-firstName");
@@ -40,9 +40,6 @@ const errorCGU = document.querySelector("#error-CGU");
 
 const errorValidation = document.querySelector("#error-validation");
 
-//variables champs vérifiés
-
-
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -54,8 +51,8 @@ function launchModal() {
 
 
 // close modal form
-const cross = document.querySelector(".close");
-cross.addEventListener("click", function(c){
+const crossForm = document.querySelector("#closeForm");
+crossForm.addEventListener("click", function(c){
   modalbg.style.display = "none";
 });
 
@@ -211,7 +208,7 @@ formSubmit.addEventListener ('submit', function (e) {
 
 //fonction pour ouvrir la modale de message de validation
 function launchModalValidation() {
-	messageValidation.style.display = "block";
+	modalValidate.style.display = "block";
 }
 
 
@@ -256,3 +253,9 @@ function validate(){
   }
 }
 
+
+// close modal validation
+const crossValid = document.querySelector("#closeValid");
+crossValid.addEventListener("click", function(c){
+  modalValidate.style.display = "none";
+});
