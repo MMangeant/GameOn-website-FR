@@ -532,14 +532,14 @@ footer {
 .errorText{
   display:none;
   color:#279e7a;
-  font-size: 18px;
+  font-size: 17px;
   font-style: italic;
 }
 
 #error-validation{
   display:none;
   color:#279e7a;
-  font-size: 18px;
+  font-size: 17px;
   font-style: italic;
 }
 
@@ -552,10 +552,13 @@ footer {
   top: 130px;
   left: 50%;
   transform: translate(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: white;
-  
-  opacity: 0;
+  display: none;
+  z-index: 3;
+  p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
 }

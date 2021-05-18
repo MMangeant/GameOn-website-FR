@@ -211,7 +211,7 @@ formSubmit.addEventListener ('submit', function (e) {
 
 //fonction pour ouvrir la modale de message de validation
 function launchModalValidation() {
-	messageValidation.style.opacity = "1";
+	messageValidation.style.display = "block";
 }
 
 
@@ -236,8 +236,9 @@ function validate(){
     checkCGUResult == false 
     )
     {
-      errorValidation.innerHTML = "Veuillez renseigner tous les champs";
-      errorValidation.style.display = "block";
+      //errorValidation.innerHTML = "Veuillez renseigner tous les champs";
+      //errorValidation.style.display = "block";
+      //launchModalValidation(); 
       return false;
   }
   if(
@@ -249,8 +250,7 @@ function validate(){
     checkCityResult == true &&
     checkCGUResult == true
     ){
-    
-    modalBg.style.display = "none"; 
+    modalbg.style.display = "none"; 
 		launchModalValidation(); 
 		return true; 
   }
