@@ -121,29 +121,22 @@ function checkMail () {
 }
 
 // vérification champ age
-
-
-var dateUser = new Date(ageDate.value);
-var dateToday = new Date();
-
-function checkAgeDate () {
-    if(!ageDate.value){
-        errorAge.innerHTML = "Veuillez renseigner une date de naissance";
-        errorAge.style.display = "block";
-        return false;    
-    }
-    else if(dateUser >= dateToday){
-        errorAge.innerHTML = "Veuillez rentrer une date de naissance valide";
-        errorAge.style.display = "block";
-        return false;
-    }
-    else{
-        errorAge.style.display = "none";
-        return true;
-    }
+function checkAgeDate(){
+	let dateUser = new Date(ageDate.value);
+	let dateToday = new Date();
+	if(!ageDate.value){ 
+		errorAge.innerHTML = "Veuillez renseigner une date de naissance"; 
+		errorAge.style.display = "block"; 
+		return false; 
+	} else if(dateUser >= dateToday){ 
+		errorAge.innerHTML = "La date de naissance n'est pas valide"; 
+		errorAge.style.display = "block"; 
+		return false; 
+	} else{ 
+		errorAge.style.display = "none";
+		return true;
+	}	
 }
-
-
 
 
 
