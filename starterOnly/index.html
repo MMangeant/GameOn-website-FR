@@ -14,7 +14,7 @@
   <body>
     <header class="topnav" id="myTopnav">
       <div class="header-logo">
-        <img alt="logo" src="Logo.png" width="auto" height="auto" />
+        <img alt="logo" src="Logo.png" width="auto" height="auto" id="logoHeader"/>
       </div>
     <nav class="main-navbar">
       <a href="#" class="active"><span>Accueil</span></a>
@@ -22,7 +22,7 @@
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
       <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
+      <a href="javascript:void(0);" class="icon" id="icoBurger" onclick="editNav()">
         <i class="fa fa-bars"></i>
       </a>
     </nav>
@@ -76,8 +76,11 @@
 
               <div class="formData">
                 <label>E-mail</label><br>
-                <input class="text-control" type="email" id="email" name="email"/><br>
+                <input class="text-control" id="email" name="email"/><br>
               </div>
+
+              <!--type="email" -->
+
               <!-- message d'erreur pour le mail -->
               <div id="error-mail" class="errorText"></div> 
 
