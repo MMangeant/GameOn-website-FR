@@ -12,7 +12,29 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 
-// DOM Elements rajoutés champs formulaire
+// launch modal event
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
+// launch modal form
+function launchModal() {
+  modalbg.style.display = "block";
+}
+
+
+
+//////MM//////
+
+
+// DOM Elements rajoutés
+
+const crossForm = document.querySelector("#closeForm");
+const formSubmit = document.querySelector("#formUser");
+const modalValidate = document.querySelector("#modalValidation");
+const crossValid = document.querySelector("#closeValid");
+
+
+// Elements champs formulaire
+
 const firstName = document.querySelector("#first");
 const lastName = document.querySelector("#last");
 const emailAdress = document.querySelector("#email");
@@ -26,10 +48,9 @@ const city5 = document.querySelector("#location5");
 const city6 = document.querySelector("#location6");
 const cocheCGU = document.querySelector("#checkbox1");
 
-const formSubmit = document.querySelector("#formUser");
-const modalValidate = document.querySelector("#modalValidation");
 
-// DOM Elements ERRORS
+// Elements messages d'erreur
+
 const errorFirstName = document.querySelector("#error-firstName");
 const errorLastName = document.querySelector("#error-lastName");
 const errorMail = document.querySelector("#error-mail");
@@ -38,27 +59,15 @@ const errorParticipations = document.querySelector("#error-participations");
 const errorCity = document.querySelector("#error-city");
 const errorCGU = document.querySelector("#error-CGU");
 
-const errorValidation = document.querySelector("#error-validation");
 
+// Close modal form
 
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-
-// launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
-}
-
-
-// close modal form
-const crossForm = document.querySelector("#closeForm");
-crossForm.addEventListener("click", function(c){
+crossForm.addEventListener("click", function(){
   modalbg.style.display = "none";
 });
 
 
-
-// vérification champ prénom
+// Vérification champ prénom
 
 function checkFirstName () {
     if(!firstName.value){
@@ -74,12 +83,11 @@ function checkFirstName () {
     else{
         errorFirstName.style.display = "none";
         return true;
-
     }
 }
 
 
-// vérification champ nom de famille
+// Vérification champ nom de famille
 
 function checkLastName () {
     if(!lastName.value){
@@ -99,11 +107,10 @@ function checkLastName () {
 }
 
 
-// vérification champ email
-
-var mailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+// Vérification champ email
 
 function checkMail () {
+    let mailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if(!emailAdress.value){
         errorMail.innerHTML = "Veuillez renseigner une adresse mail";
         errorMail.style.display = "block";
@@ -120,27 +127,28 @@ function checkMail () {
     }
 }
 
-// vérification champ age
+
+// Vérification champ âge
+
 function checkAgeDate(){
-	let dateUser = new Date(ageDate.value);
-	let dateToday = new Date();
-	if(!ageDate.value){ 
-		errorAge.innerHTML = "Veuillez renseigner une date de naissance"; 
-		errorAge.style.display = "block"; 
-		return false; 
-	} else if(dateUser >= dateToday){ 
-		errorAge.innerHTML = "La date de naissance n'est pas valide"; 
-		errorAge.style.display = "block"; 
-		return false; 
-	} else{ 
-		errorAge.style.display = "none";
-		return true;
-	}	
+    let dateUser = new Date(ageDate.value);
+    let dateToday = new Date();
+    if(!ageDate.value){ 
+      errorAge.innerHTML = "Veuillez renseigner une date de naissance"; 
+      errorAge.style.display = "block"; 
+      return false; 
+    } else if(dateUser >= dateToday){ 
+      errorAge.innerHTML = "La date de naissance n'est pas valide"; 
+      errorAge.style.display = "block"; 
+      return false; 
+    } else{ 
+      errorAge.style.display = "none";
+      return true;
+    }	
 }
 
 
-
-// vérification champ participations
+// Vérification champ participations
 
 function checkParticipations () {
     if(!nbParticipations.value){
@@ -155,56 +163,59 @@ function checkParticipations () {
 }
 
 
-// vérification champ villes
-
-const cityArray = [city1,city2,city3,city4,city5,city6];
+// Vérification champ villes
 
 function checkCity() {
-  if ((!cityArray[0].checked) &&
-     (!cityArray[1].checked) &&
-     (!cityArray[2].checked) &&
-     (!cityArray[3].checked) &&
-     (!cityArray[4].checked) &&
-     (!cityArray[5].checked)
-     ){
-      errorCity.innerHTML = "Veuillez indiquer une ville";
-      errorCity.style.display = "block";
-      return false;
-  }
-  else{
-    errorCity.style.display = "none";
-    return true;
-  }
-}
-
-// vérification checkbox CGU
-function checkCGU () {
-  if(!cocheCGU.checked){
-      errorCGU.innerHTML = "Vous devez accepter les termes et conditions";
-      errorCGU.style.display = "block";
-      return false;
-  }
-  else{
-      errorCGU.style.display = "none";
+    let cityArray = [city1,city2,city3,city4,city5,city6];
+    if ((!cityArray[0].checked) &&
+      (!cityArray[1].checked) &&
+      (!cityArray[2].checked) &&
+      (!cityArray[3].checked) &&
+      (!cityArray[4].checked) &&
+      (!cityArray[5].checked)
+      ){
+        errorCity.innerHTML = "Veuillez indiquer une ville";
+        errorCity.style.display = "block";
+        return false;
+    }
+    else{
+      errorCity.style.display = "none";
       return true;
-  }
+    }
 }
 
 
-// empêche l'effacement du formulaire par défaut et implémente la fonction de validation
+// Vérification checkbox CGU
+
+function checkCGU () {
+    if(!cocheCGU.checked){
+        errorCGU.innerHTML = "Vous devez accepter les termes et conditions";
+        errorCGU.style.display = "block";
+        return false;
+    }
+    else{
+        errorCGU.style.display = "none";
+        return true;
+    }
+}
+
+
+// Empêcher l'effacement du formulaire par défaut et implémenter la fonction de validation
+
 formSubmit.addEventListener ('submit', function (e) {
   e.preventDefault();
   validate();
 });
 
 
-//fonction pour ouvrir la modale de message de validation
+// Ouvrir la modale du message de validation
+
 function launchModalValidation() {
 	modalValidate.style.display = "block";
 }
 
 
-//fonction de validation du formulaire
+// Validation du formulaire
 
 function validate(){
 	let checkFirstNameResult = checkFirstName(); 
@@ -214,22 +225,7 @@ function validate(){
 	let checkParticipationsResult = checkParticipations();
 	let checkCityResult = checkCity();
 	let checkCGUResult = checkCGU();
-	
-  if(
-    checkFirstNameResult == false ||
-    checkLastNameResult == false ||
-    checkEmailResult == false ||
-    checkAgeResult == false ||
-    checkParticipationsResult == false ||
-    checkCityResult == false ||
-    checkCGUResult == false 
-    )
-    {
-      //errorValidation.innerHTML = "Veuillez renseigner tous les champs";
-      //errorValidation.style.display = "block";
-      //launchModalValidation(); 
-      return false;
-  }
+
   if(
     checkFirstNameResult == true &&
     checkLastNameResult == true &&
@@ -243,11 +239,12 @@ function validate(){
 		launchModalValidation(); 
 		return true; 
   }
+  
 }
 
 
-// close modal validation
-const crossValid = document.querySelector("#closeValid");
+// Fermer la modale du message de validation
+
 crossValid.addEventListener("click", function(c){
   modalValidate.style.display = "none";
 });
