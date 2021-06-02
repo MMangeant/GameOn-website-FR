@@ -536,13 +536,6 @@ footer {
   font-style: italic;
 }
 
-#error-validation{
-  display:none;
-  color:#279e7a;
-  font-size: 17px;
-  font-style: italic;
-}
-
 #modalValidation{
   position: fixed;
   background-color: #3876ac;
