@@ -59,6 +59,11 @@ const errorParticipations = document.querySelector("#error-participations");
 const errorCity = document.querySelector("#error-city");
 const errorCGU = document.querySelector("#error-CGU");
 
+// Regexs
+
+var nameRegex = /^[a-zA-Z]+$/;
+var mailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
 
 // Close modal form
 
@@ -70,12 +75,17 @@ crossForm.addEventListener("click", function(){
 // Vérification champ prénom
 
 function checkFirstName () {
-    if(!firstName.value){
+    if(!firstName.value.trim()){
         errorFirstName.innerHTML = "Veuillez renseigner un prénom";
         errorFirstName.style.display = "block";
         return false;
     }
-    else if(firstName.value.length < 2){
+    else if (nameRegex.test (firstName.value.trim()) == false){
+        errorFirstName.innerHTML = "Le prénom renseigné n'est pas valide";
+        errorFirstName.style.display = "block";
+        return false;
+    }
+    else if(firstName.value.trim().length < 2){
         errorFirstName.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du prénom";
         errorFirstName.style.display = "block";
         return false;
@@ -90,12 +100,18 @@ function checkFirstName () {
 // Vérification champ nom de famille
 
 function checkLastName () {
-    if(!lastName.value){
+    
+    if(!lastName.value.trim()){
         errorLastName.innerHTML = "Veuillez renseigner un nom de famille";
         errorLastName.style.display = "block";
         return false;
     }
-    else if (lastName.value.length < 2){
+    else if (nameRegex.test (lastName.value.trim()) == false){
+      errorLastName.innerHTML = "Le nom renseigné n'est pas valide";
+      errorLastName.style.display = "block";
+      return false;
+    }
+    else if (lastName.value.trim().length < 2){
         errorLastName.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom de famille";
         errorLastName.style.display = "block";
         return false;
@@ -110,13 +126,12 @@ function checkLastName () {
 // Vérification champ email
 
 function checkMail () {
-    let mailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if(!emailAdress.value){
+    if(!emailAdress.value.trim()){
         errorMail.innerHTML = "Veuillez renseigner une adresse mail";
         errorMail.style.display = "block";
         return false;
     }
-    else if (mailRegex.test (emailAdress.value) == false){
+    else if (mailRegex.test (emailAdress.value.trim()) == false){
         errorMail.innerHTML = "L'adresse mail n'est pas valide";
         errorMail.style.display = "block";
         return false;
@@ -137,7 +152,7 @@ function checkAgeDate(){
       errorAge.innerHTML = "Veuillez renseigner une date de naissance"; 
       errorAge.style.display = "block"; 
       return false; 
-    } else if(dateUser >= dateToday){ 
+    } else if(dateUser > dateToday){ 
       errorAge.innerHTML = "La date de naissance n'est pas valide"; 
       errorAge.style.display = "block"; 
       return false; 
