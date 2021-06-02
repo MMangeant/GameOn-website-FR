@@ -478,6 +478,7 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -555,9 +556,23 @@ footer {
   justify-content: center;
   align-items: center;
   height: 100%;
+  text-align: center;
+  padding: 20px;
 }
 
-@media screen and (max-width: 540px) {
+@media all and (max-width: 1000px) {
+  .hero-headline{
+    font-size: 4.5rem;
+  }
+}
+
+@media all and (max-width: 800px){
+  #modalValidation{
+    width: 90%;
+  }
+}
+
+@media all and (max-width: 540px) {
   main{
     padding-left: 0;
     padding-right: 0;
@@ -580,5 +595,13 @@ footer {
   }
   
 }
+
+@media all and (max-width: 300px){
+  .hero-headline{
+    font-size: 2rem;
+  }
+}
+
+
 
 
