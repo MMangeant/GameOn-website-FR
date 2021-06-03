@@ -61,7 +61,7 @@ const errorCGU = document.querySelector("#error-CGU");
 
 // Regexs
 
-var nameRegex = /^[a-zA-Z]+$/;
+var nameRegex = /^[a-zàáâäçèéêëìíîïñòóôöùúûü]+[ \-']?[[a-zàáâäçèéêëìíîïñòóôöùúûü]+[ \-']?]*[a-zàáâäçèéêëìíîïñòóôöùúûü]+$/; 
 var mailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 
